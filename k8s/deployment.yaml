@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biocad-hello
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: biocad-hello
+  template:
+    metadata:
+      labels:
+        app: biocad-hello
+    spec:
+      containers:
+        - name: app
+          image: artemysav/biocad-hello:latest
+          ports:
+            - containerPort: 32777
